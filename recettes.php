@@ -31,12 +31,20 @@
 
             <div class="row section-padding-80">
                 <!-- Single Best Receipe Area -->
+
+                <?php  
+
+                $reponse = $bdd->query('SELECT titre, photocouverture FROM recette ORDER BY DATE desc');
+
+                while ($donnees = $reponse->fetch())
+                {
+                ?>
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-best-receipe-area mb-30">
-                        <a href="receipe-post.html"><img src="img/bg-img/r1.jpg" alt="">
+                        <a href="receipe-post.html"><img height="100%" width="100%" src="img/photocouv/<?php echo $donnees['photocouverture'] ?>"  alt="">
                         <div class="receipe-content">
                             <a href="receipe-post.html">
-                                <h5>Sushi Easy Receipy</h5>
+                                <h5><?php echo $donnees['titre'] ?></h5>
                             </a>
                             <div class="ratings">
                                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -48,6 +56,7 @@
                         </div>
                     </div>
                 </div>
+            <?php } ?>
 
                 <!-- Single Best Receipe Area -->
                 <div class="col-12 col-sm-6 col-lg-4">
@@ -68,81 +77,6 @@
                     </div>
                 </div>
 
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <a href="recettes.php"> <img src="img/bg-img/r3.jpg" /> </a>
-                        <div class="receipe-content">
-                            <a href="recettes.php">
-                                <h5>Vegan Smoothie</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <a href="recettes.php"><img src="img/bg-img/r4.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="recettes.php">
-                                <h5>Calabasa soup</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <a href="recettes.php"><img src="img/bg-img/r5.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="recettes.php">
-                                <h5>Homemade Breakfast</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <a href="recettes.php"><img src="img/bg-img/r6.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="recettes.php">
-                                <h5>Healthy Fruit Desert</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

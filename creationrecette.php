@@ -1,6 +1,5 @@
 <?php 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +14,7 @@
         <div class="row">
         	<div class="col-12">
                 <div class="contact-form-area">
-                    <form action="test.php" method="post" id="my_form">
+                    <form action="test.php" method="post" id="my_form" enctype="multipart/form-data">
 
                         <div class="row">
 
@@ -27,47 +26,47 @@
                             <div class="col-lg-6" ><br />
                             	<div class="row">
                             		<div class="col-lg-12">
-                                		<input type="text" class="form-control" id="nom" name="nom" placeholder="Nom de la recette">
+                                		<input type="text" class="form-control" id="nom" name="nom" placeholder="Nom de la recette" value="<?php if (isset($_POST['nom'])){echo $_POST['nom'];} ?>" >
                             		</div>
                            
 		                            <div class="col-lg-4">
 		                            	<label>Temps de préparation :</label>
-		  								<input type="time" name="temppreparation" class="form-control">
+		  								<input type="time" name="temppreparation" class="form-control" value="<?php if (isset($_POST['temppreparation'])){echo $_POST['temppreparation'];} ?>">
 									</div>
 
 									<div class="col-lg-4">
 		                            	<label>Temps de cuisson :</label>
-		  								<input type="time" name="tempcuisson" class="form-control">
+		  								<input type="time" name="tempcuisson" class="form-control" value="<?php if (isset($_POST['tempcuisson'])){echo $_POST['tempcuisson'];} ?>">
 									</div>
 
 									<div class="col-lg-4">
 		                            	<label>Nombre de personne :</label>
-		  								<input type="number" name="nombredepersonne" id="input" class="form-control">
+		  								<input type="number" name="nombredepersonne" id="input" class="form-control" value="<?php if (isset($_POST['nombredepersonne'])){echo $_POST['nombredepersonne'];} ?>">
 									</div>
 
 		                            <div class="col-12">
 		                            	<label>Etape 1 :</label>
-		                                <textarea name="etape1" class="form-control" id="etape" cols="30" rows="10" placeholder=""></textarea>
+		                                <textarea name="etape1" class="form-control" id="etape" cols="30" rows="10" placeholder="" ><?php if (isset($_POST['etape1'])){echo $_POST['etape1'];} ?></textarea>
 		                            </div>
 
 		                            <div class="col-12">
 		                            	<label>Etape 2 :</label>
-		                                <textarea name="etape2" class="form-control" id="etape" cols="30" rows="10" placeholder="Ne pas remplir si les étapes sont terminées."></textarea>
+		                                <textarea name="etape2" class="form-control" id="etape" cols="30" rows="10"><?php if (isset($_POST['etape2'])){echo $_POST['etape2'];} ?></textarea>
 		                            </div>
 		                            
 		                            <div class="col-12">
 		                            	<label>Etape 3 :</label>
-		                                <textarea name="etape3" class="form-control" id="etape" cols="30" rows="10" placeholder="Ne pas remplir si les étapes sont terminées."></textarea>
+		                                <textarea name="etape3" class="form-control" id="etape" cols="30" rows="10" placeholder="Ne pas remplir si les étapes sont terminées."><?php if (isset($_POST['etape3'])){echo $_POST['etape3'];} ?></textarea>
 		                            </div>
 
 		                            <div class="col-12">
 		                            	<label>Etape 4 :</label>
-		                                <textarea name="etape4" class="form-control" id="etape" cols="30" rows="10" placeholder="Ne pas remplir si les étapes sont terminées."></textarea>
+		                                <textarea name="etape4" class="form-control" id="etape" cols="30" rows="10" placeholder="Ne pas remplir si les étapes sont terminées."><?php if (isset($_POST['etape4'])){echo $_POST['etape4'];} ?></textarea>
 		                            </div>
 
 		                            <div class="col-12">
 		                            	<label>Etape 5 :</label>
-		                                <textarea name="etape5" class="form-control" id="etape" cols="30" rows="10" placeholder="Ne pas remplir si les étapes sont terminées."></textarea>
+		                                <textarea name="etape5" class="form-control" id="etape" cols="30" rows="10" placeholder="Ne pas remplir si les étapes sont terminées."><?php if (isset($_POST['etape5'])){echo $_POST['etape5'];} ?></textarea>
 		                            </div>
 
 		                            <div class="col-12">
@@ -101,7 +100,7 @@
 
 		                   			<div class="col-lg-12">
 		                   				<label>Photo de couverture :</label><br />
-		                   				<input type="file" name="photocouverture" accept="image/*" />	                   				
+		                   				<input type="file" name="photocouverture" accept="image/*"/>	                   				
 		                   			</div><br />
 
 		                   			<div class="col-lg-12">		                   			
@@ -192,12 +191,9 @@
                 						<input type="text" class="form-control" name="ingrediant19" placeholder="Nom de l'ingrédiant">
 		                   			</div>
 
-		                   			<div class="col-lg-12">
+		                   				<div class="col-lg-12">
                 						<input type="text" class="form-control" name="ingrediant20" placeholder="Nom de l'ingrédiant">
 		                   			</div>	                   			
-		                   			<div class="col-12">
-                   				<a href="test.php" type="submit" class="btn delicious-btn btn-4 m-1 col-12">Publiée !</a>
-               				</div>
 		                   			
 		                   		</div>
 		                   		
