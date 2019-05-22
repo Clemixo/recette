@@ -14,7 +14,7 @@
         <div class="row">
         	<div class="col-12">
                 <div class="contact-form-area">
-                    <form action="test.php" method="post" id="my_form" enctype="multipart/form-data">
+                    <form action="publie.php" method="post" id="my_form" enctype="multipart/form-data">
 
                         <div class="row">
 
@@ -157,11 +157,7 @@
 
 		                   			<div class="col-lg-12">
                 						<input type="text" class="form-control" name="ingrediant12" placeholder="Nom de l'ingrédiant">
-		                   			</div>
-
-		                   			<div class="col-lg-12">
-                						<input type="text" class="form-control" name="ingrediant12" placeholder="Nom de l'ingrédiant">
-		                   			</div>
+		                   			</div>		                   			
 
 		                   			<div class="col-lg-12">
                 						<input type="text" class="form-control" name="ingrediant13" placeholder="Nom de l'ingrédiant">

@@ -2,65 +2,73 @@
 
 <head>
     
-    <title>Recettte bio | Home</title>
+    <title>Recettte bio | recettes</title>
     <?php include("header.php");
     ?>
 </head>
-
-
-
 <body>
-
-    <section class="top-catagory-area section-padding-80-0">
-        <div class="container">
-            <div class="row">               
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-catagory">
-                        <img src="img/bg-img/bg2.jpg" alt=""><!--image recette-->
-                        
-                        <div class="top-cta-content">
-                            <h3>Nom recette</h3><!-- Nom recette-->
-                            <h6>Petit commentaire</h6><!--Petit commentaire sur la recette-->
-                            <a href="recettes.php" class="btn delicious-btn">Voir plus</a><!--redirection vers la page de la recette-->
-                        </div>
-                    </div>
-                </div>
-                <!-- Top Catagory Area -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-catagory">
-                        <img src="img/bg-img/bg3.jpg" alt=""><!--image recette-->
-                        <!-- Content -->
-                        <div class="top-cta-content">
-                            <h3>Nom recette</h3><!-- Nom recette-->
-                            <h6>Petit commentaire</h6><!--Petit commentaire sur la recette-->
-                            <a href="recettes.php" class="btn delicious-btn">Voir plus</a><!--redirection vers la page de la recette-->
-                        </div>
+	<div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-text text-center">
+                        <h2>Les recettes</h2>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- ##### Top Catagory Area End ##### -->
+    </div>
 
-    <!-- ##### Best Receipe Area Start ##### -->
-    <section class="best-receipe-area">
+     <section class="best-receipe-area">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="section-heading">
+                    <!--<div class="section-heading">
                         <h3>Les recettes les plus récentes</h3>
-                    </div>
+                    </div>-->
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row section-padding-80">
                 <!-- Single Best Receipe Area -->
+
+                <?php  
+
+               
+                
+                         
+               
+                $reponse = $bdd->query('SELECT idrecette, titre, photocouverture FROM recette ORDER BY DATE desc');
+
+                while ($donnees = $reponse->fetch())
+                {
+
+                    if (!empty($donnees['photocouverture']))
+                    {
+                    $w = fct_affich_imageW(1000, 850, 'img/photocouv/'.$donnees['photocouverture']);
+                    
+                    $h = fct_affich_imageH(1000, 850, 'img/photocouv/'.$donnees['photocouverture']);
+
+                    $src = 'img/photocouv/'.$donnees['photocouverture'];
+                    
+                    }
+                    else{
+
+                    $w = fct_affich_imageW(1000, 850, 'img/icons/Logo-Solibio-300_300.jpg');
+                    
+                    $h = fct_affich_imageH(1000, 850, 'img/icons/Logo-Solibio-300_300.jpg');
+
+                    $src = 'img/icons/Logo-Solibio-300_300.jpg';
+
+                    }
+                ?>
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-best-receipe-area mb-30">
-                        <a href="recetts.php"><img src="img/bg-img/r1.jpg" alt="">
+                        <?php echo '<a href="recette.php?id='.$donnees['idrecette'].'"><img src="'.$src.'" width="'.$w.'" height="'.$h.'" alt="">'?>
+                                                            
                         <div class="receipe-content">
-                            <a href="recettes.php">
-                                <h5>Sushi Easy Receipy</h5>
+                            <?php echo '<a href="recette.php?id='.$donnees['idrecette'].'" a>' ?>
+                                <h5><?php echo $donnees['titre'] ?></h5>
                             </a>
                             <div class="ratings">
                                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -72,11 +80,12 @@
                         </div>
                     </div>
                 </div>
+            <?php } ?>
 
-                <!-- Single Best Receipe Area -->
+                <!-- Single Best Receipe Area
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-best-receipe-area mb-30">
-                        <a href="recettes.php"><img src="img/bg-img/r2.jpg" alt="">
+                        <a href="recettes.php"><img src="img/photocouv/sr1.jpg" width="850" height="850" alt="">
                         <div class="receipe-content">
                             <a href="recettes.php">
                                 <h5>Homemade Burger</h5>
@@ -90,131 +99,92 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <a href="recettes.php"> <img src="img/bg-img/r3.jpg" /> </a>
-                        <div class="receipe-content">
-                            <a href="recettes.php">
-                                <h5>Vegan Smoothie</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <a href="recettes.php"><img src="img/bg-img/r4.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="recettes.php">
-                                <h5>Calabasa soup</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <a href="recettes.php"><img src="img/bg-img/r5.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="recettes.php">
-                                <h5>Homemade Breakfast</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <a href="recettes.php"><img src="img/bg-img/r6.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="recettes.php">
-                                <h5>Healthy Fruit Desert</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
-    <!-- ##### Best Receipe Area End ##### -->
-
-    <!-- ##### CTA Area Start ##### -->
-    
-    <!-- ##### CTA Area End ##### -->
-
-     
-
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
-        <div class="container h-100">
-            <div class="row h-100">
-                <div class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">
-                    <!-- Footer Social Info -->
-                    <div >
-                        <a></a>
-                        <a></a>
-                        <a></a>
-                        <a></a>
-                        <a></a>
-                        <a></a>
-                    </div>
-                    <!-- Footer Logo -->
-                    
-                    <!-- Copywrite -->
-                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | by Clément Tournet Rayane Djenane</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ##### Footer Area Start ##### -->
-
-    <!-- ##### All Javascript Files ##### -->
-    <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
-    <!-- All Plugins js -->
-    <script src="js/plugins/plugins.js"></script>
-    <!-- Active js -->
-    <script src="js/active.js"></script>
 </body>
 
-</html>
+<?php
+
+    function fct_affich_imageW($Wmax, $Hmax, $img_Src) {
+                 // ------------------------------------------------------------------
+                   // Lit les dimensions de l'image
+       $sizeimg = GetImageSize($img_Src);  
+       $Src_W = $sizeimg[0]; // largeur
+       $Src_H = $sizeimg[1]; // hauteur
+     // ------------------------------------------------------------------
+       // Teste les dimensions tenant dans la zone
+       $test_H = round(($Wmax / $Src_W) * $Src_H);
+       $test_W = round(($Hmax / $Src_H) * $Src_W);
+     // ------------------------------------------------------------------
+       // Si Height final non précisé (0)
+       if(!$Hmax) $Hmax = $test_H;
+       // Sinon si Width final non précisé (0)
+       elseif(!$Wmax) $Wmax = $test_W;
+       // Sinon teste quel redimensionnement tient dans la zone
+       elseif($test_H>$Hmax) $Wmax = $test_W;
+       else $Hmax = $test_H;
+     // ------------------------------------------------------------------
+       // (procédure : ne retourne aucune valeur mais ...)
+       // AFFICHE les dimensions optimales
+      
+       return $Wmax;   
+
+    }
+
+    function fct_affich_imageH($Wmax, $Hmax, $img_Src) {
+                 // ------------------------------------------------------------------
+                   // Lit les dimensions de l'image
+       $sizeimg = GetImageSize($img_Src);  
+       $Src_W = $sizeimg[0]; // largeur
+       $Src_H = $sizeimg[1]; // hauteur
+     // ------------------------------------------------------------------
+       // Teste les dimensions tenant dans la zone
+       $test_H = round(($Wmax / $Src_W) * $Src_H);
+       $test_W = round(($Hmax / $Src_H) * $Src_W);
+     // ------------------------------------------------------------------
+       // Si Height final non précisé (0)
+       if(!$Hmax) $Hmax = $test_H;
+       // Sinon si Width final non précisé (0)
+       elseif(!$Wmax) $Wmax = $test_W;
+       // Sinon teste quel redimensionnement tient dans la zone
+       elseif($test_H>$Hmax) $Wmax = $test_W;
+       else $Hmax = $test_H;
+     // ------------------------------------------------------------------
+       // (procédure : ne retourne aucune valeur mais ...)
+       // AFFICHE les dimensions optimales
+      
+       return $Hmax;
+       
+
+    }
+
+    function fct_affich_image($Wmax, $Hmax, $img_Src) {
+ // ------------------------------------------------------------------
+   // Lit les dimensions de l'image
+   $sizeimg = GetImageSize($img_Src);  
+   $Src_W = $sizeimg[0]; // largeur
+   $Src_H = $sizeimg[1]; // hauteur
+ // ------------------------------------------------------------------
+   // Teste les dimensions tenant dans la zone
+   $test_H = round(($Wmax / $Src_W) * $Src_H);
+   $test_W = round(($Hmax / $Src_H) * $Src_W);
+ // ------------------------------------------------------------------
+   // Si Height final non précisé (0)
+   if(!$Hmax) $Hmax = $test_H;
+   // Sinon si Width final non précisé (0)
+   elseif(!$Wmax) $Wmax = $test_W;
+   // Sinon teste quel redimensionnement tient dans la zone
+   elseif($test_H>$Hmax) $Wmax = $test_W;
+   else $Hmax = $test_H;
+ // ------------------------------------------------------------------
+   // (procédure : ne retourne aucune valeur mais ...)
+   // AFFICHE les dimensions optimales
+   echo 'width='.$Wmax.' height='.$Hmax;
+}
+// --------------------------------------------------------------------------------------------------
+
+
+?>

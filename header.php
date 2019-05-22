@@ -2,8 +2,6 @@
 session_start();
 
 
-
-
 try
 {
     $bdd = new PDO('mysql:host=localhost;dbname=recette;charset=utf8', 'root', '');
@@ -30,14 +28,14 @@ catch(Exception $e)
 
 </head>
 <body>
-    <!-- Preloader
+    <!-- Preloader -->
     <div id="preloader">
         <i class="circle-preloader"></i>
         <img src="img/core-img/salad.png" alt="">
     </div>
 
     <!-- Search Wrapper -->
-    <!--<div class="search-wrapper">
+   <!-- <div class="search-wrapper">-->
         <!-- Close Btn -->
         <!--<div class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
         <div class="container">
@@ -63,7 +61,7 @@ catch(Exception $e)
                     <nav class="classy-navbar justify-content-between" id="deliciousNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.php"><img src="img/core-img/logo.png" alt=""></a>
+                        <a class="nav-brand" href="index.php"><img src="img/icons/Logo-Solibio-300_300.jpg" style="width: 40%; height: 40%;" alt=""></a>
 
                         
                         <div class="classy-navbar-toggler">
@@ -75,12 +73,10 @@ catch(Exception $e)
                             </div>
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.php">Home</a></li>
-                                    <li><a href="recettes.php">Recettes</a></li>
+                                    <li><a href="index.php">Recettes</a></li>                                   
                                     <?php 
                                     if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){?>
                                         <li><a href="mesrecettes.php">Mes recettes</a></li>
-                                        <li><a href="moncompte.php">Mon compte</a></li>
                                         <li><a href="deconnexion.php">Déconnexion</a></li>
                                     <?php }
                                     else
@@ -90,7 +86,7 @@ catch(Exception $e)
                                     
                                     <?php } ?>
                                    
-                                    <li><a href="infos.php">info</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
